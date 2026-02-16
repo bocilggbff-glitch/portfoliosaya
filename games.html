@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobi - ALFGGR</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Mr+Dafoe&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* Page Specific Styles */
+        .simulator-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid var(--text-black);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gacha-result {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-black);
+            background: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .gacha-result.ssr {
+            color: #ff4d4d;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+            animation: pulse 0.5s ease;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background-text" style="font-size: 25vw; top: 40%;">HOBI</div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="games.html" class="nav-link active" style="font-weight: 700; text-decoration: underline;">HOBI</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="thankyou.html" class="nav-link">TERIMAKASIH</a>
+            <div class="divider">|</div>
+            <a href="info.html" class="nav-link info-link">INFO <i class="ph-fill ph-info"></i></a>
+        </div>
+    </nav>
+
+    <main class="games-section">
+        <h1 class="page-title">HOBBY CENTER</h1>
+
+        <!-- JS Interactive Section -->
+        <div class="simulator-section">
+            <h2 style="font-family: var(--font-heading); margin-bottom: 20px;">LUCK SIMULATOR</h2>
+            <div id="gacha-display" class="gacha-result">Ready to Pull?</div>
+            <div class="controls">
+                <button id="pull-btn" class="btn btn-primary">PULL x1</button>
+                <button id="reset-btn" class="btn btn-outline">RESET</button>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--text-grey);">Rate: 5★ (5%), 4★ (15%), 3★ (80%)
+            </p>
+        </div>
+
+        <h2 style="font-family: var(--font-heading); text-align: center; margin-bottom: 30px;">MY COLLECTION</h2>
+
+        <div class="games-grid">
+            <!-- Sepeda -->
+            <div class="game-card">
+                <div class="card-image">
+                    <img src="https://i.pinimg.com/1200x/ac/83/a3/ac83a32418d0c545324f373d9774e25f.jpg" alt="Sepeda">
+                </div>
+                <div class="card-info">
+                    <h2>Sepeda</h2>
+                    <p>Cycling</p>
+                    <div class="card-rank">HOBBY</div>
+                </div>
+            </div>
+
+            <!-- Bulu Tangkis -->
+            <div class="game-card">
+                <div class="card-image">
+                    <img src="https://i.pinimg.com/736x/e6/72/5c/e6725c5ffbce09a4f5620ab5fff9595c.jpg" alt="Bulu Tangkis">
+                </div>
+                <div class="card-info">
+                    <h2>Bulu Tangkis</h2>
+                    <p>Badminton</p>
+                    <div class="card-rank">SPORT</div>
+                </div>
+            </div>
+
+            <!-- Game -->
+            <div class="game-card">
+                <div class="card-image">
+                    <img src="https://i.pinimg.com/736x/4b/f0/2e/4bf02ed7aa22c308551b30493679575f.jpg" alt="Game">
+                </div>
+                <div class="card-info">
+                    <h2>Game</h2>
+                    <p>Gaming</p>
+                    <div class="card-rank">LIFESTYLE</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="bottom-logo">
+        <span>CHAINSAW</span>
+        <span class="logo-main">MAN</span>
+    </div>
+
+    <!-- Overlay texture for paper effect -->
+    <div class="paper-overlay"></div>
+
+    <!-- Javascript Logic -->
+    <script>
+        // Gacha Logic
+        const display = document.getElementById('gacha-display');
+        const pullBtn = document.getElementById('pull-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        const items = {
+            5: ['★5 MAKIMA (SSR)', '★5 POCHITA (SSR)', '★5 AKHDAN (DEV)'],
+            4: ['★4 Chainsaw', '★4 Power Hammer', '★4 Potion', '★4 Uniform'],
+            3: ['★3 Trash', '★3 Stone', '★3 Paper', '★3 Stick']
+        };
+
+        pullBtn.addEventListener('click', () => {
+            // Disable button briefly
+            pullBtn.disabled = true;
+            display.textContent = "Summoning...";
+            display.className = "gacha-result"; // Reset class
+
+            setTimeout(() => {
+                const rand = Math.random() * 100;
+                let rarity = 3;
+
+                if (rand < 5) rarity = 5; // 5% chance
+                else if (rand < 20) rarity = 4; // 15% chance
+
+                const pool = items[rarity];
+                const item = pool[Math.floor(Math.random() * pool.length)];
+
+                display.textContent = item;
+
+                if (rarity === 5) {
+                    display.classList.add('ssr');
+                } else {
+                    display.style.color = 'var(--text-black)';
+                }
+
+                pullBtn.disabled = false;
+            }, 500); // 0.5s delay for effect
+        });
+
+        resetBtn.addEventListener('click', () => {
+            display.textContent = "Ready to Pull?";
+            display.className = "gacha-result";
+        });
+    </script>
+
+</body>
+
+</html>

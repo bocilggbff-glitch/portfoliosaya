@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info - ALFGGR</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Mr+Dafoe&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* Specific styles for info page content */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 40px;
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-title {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .info-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-grey);
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            /* Slight background for readability */
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--text-black);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-grey);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .info-title {
+                font-size: 3.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .info-text {
+                padding: 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background-text">INFO</div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="games.html" class="nav-link">HOBI</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="thankyou.html" class="nav-link">TERIMAKASIH</a>
+            <div class="divider">|</div>
+            <a href="#" class="nav-link info-link active" style="font-weight: 700;">INFO <i
+                    class="ph-fill ph-info"></i></a>
+        </div>
+    </nav>
+
+    <main class="info-section">
+        <h1 class="info-title">ABOUT ALFGGR</h1>
+
+        <div class="info-text">
+            <p>
+                Knowing Alfggr is like unlocking a hidden level in a game unexpected, challenging, but ultimately
+                rewarding.
+                With a passion for gaming that rivals professional players and a creative mind that never sleeps,
+                Alfggr brings a unique energy to every project and match.
+            </p>
+            <br>
+            <p>
+                Whether strategizing for the next big win or designing the next big thing, the focus is always on
+                quality, aesthetics, and having a good time. "Already let first gaming good right?" isn't just a
+                catchphrase;
+                it's a lifestyle.
+            </p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-value">LVL. 99</span>
+                <span class="stat-label">Creativity</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">RANK S</span>
+                <span class="stat-label">Gaming Skill</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Dedication</span>
+            </div>
+        </div>
+    </main>
+
+    <div class="bottom-logo">
+        <span>CHAINSAW</span>
+        <span class="logo-main">MAN</span>
+    </div>
+
+    <!-- Overlay texture for paper effect -->
+    <div class="paper-overlay"></div>
+
+</body>
+
+</html>

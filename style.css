@@ -1,0 +1,736 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-black: #000000;
+    --text-grey: #4a4a4a;
+    --bg-color: #fdfcf8;
+    /* Slightly warm off-white */
+    --accent-red: #ff4d4d;
+    /* For eyes or accents if needed */
+    --font-heading: 'Anton', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-script: 'Mr Dafoe', cursive;
+}
+
+
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-black);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    /* Crumpled paper texture effect via CSS gradients */
+    background-image:
+        linear-gradient(45deg, #f2f2f2 25%, transparent 25%, transparent 75%, #f2f2f2 75%, #f2f2f2),
+        linear-gradient(45deg, #f2f2f2 25%, transparent 25%, transparent 75%, #f2f2f2 75%, #f2f2f2);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    opacity: 1;
+}
+
+/* Texture Overlay */
+.paper-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('logo/stlle hsr.jpg');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 100;
+}
+
+
+
+/* Background Large Text */
+.background-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: 35vw;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.03);
+    /* Faint outline */
+    z-index: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 1;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-black);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin: 0 20px;
+}
+
+.nav-item.active {
+    background-color: var(--text-black);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.divider {
+    font-weight: 700;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+.info-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-link i {
+    font-size: 1.2rem;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 120px);
+    /* Adjust for navbar */
+    padding: 0 60px;
+    position: relative;
+    z-index: 5;
+    /* Ensure content is readable over video */
+    overflow: hidden;
+    /* Clips the video */
+}
+
+/* Video Background */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.6;
+    /* Slight transparency for readability */
+    border-radius: 20px;
+    /* Optional rounded look */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 8rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    max-width: 80%;
+}
+
+.hero-description {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+    line-height: 1.6;
+    max-width: 450px;
+    margin-bottom: 30px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-black);
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+}
+
+.social-icon img {
+    border-radius: 6px;
+    width: 24px;
+    height: 24px;
+}
+
+.signature {
+    font-family: var(--font-script);
+    font-size: 6rem;
+    margin-bottom: 40px;
+    color: var(--text-black);
+    transform: rotate(-5deg);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--text-black);
+    color: white;
+    border: 2px solid var(--text-black);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--text-black);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-black);
+    border: 2px solid var(--text-black);
+}
+
+.btn-outline:hover {
+    background-color: var(--text-black);
+    color: white;
+}
+
+/* Right Side Image */
+.hero-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.character-image {
+    max-height: 80vh;
+    /* Reduced height to fit better with aspect ratio */
+    width: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    /* Adjust position to overlap/pop out slightly */
+    transform: translateX(50px) translateY(20px);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    border-radius: 20px;
+    /* Optional: smooth corners like a phone screen */
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Side Navigation Dots */
+.side-nav-dots {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--text-black);
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background-color: #999;
+}
+
+/* Bottom Logo */
+.bottom-logo {
+    position: absolute;
+    bottom: 40px;
+    right: 100px;
+    font-family: var(--font-heading);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 0.9;
+    color: #e5989b;
+    /* Subtle pink/red tint like the logo */
+}
+
+.bottom-logo span {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.bottom-logo .logo-main {
+    font-size: 3rem;
+    color: #ffb7b2;
+    /* Lighter pinkish red */
+    position: relative;
+}
+
+.logo-main::before {
+    content: 'MAN';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    color: #d1495b;
+    /* Darker red shadow/offset */
+    z-index: -1;
+}
+
+/* Background Wrapper for About and Works */
+.scenic-background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('logo/stlle hsr.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 60px 0;
+    position: relative;
+    z-index: 5;
+    margin-top: 60px;
+}
+
+.scenic-background .section-title {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.scenic-background .about-text {
+    color: #f0f0f0;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Adjust button for dark background */
+.scenic-background .btn-outline {
+    border-color: white;
+    color: white;
+}
+
+.scenic-background .btn-outline:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Adjust Game Cards to be semi-transparent or keep white */
+.scenic-background .game-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scenic-background .game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 6rem;
+    }
+
+    .character-image {
+        transform: translateX(0);
+        max-width: 100%;
+    }
+
+    .background-text {
+        font-size: 30vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 20px 10px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-left,
+    .nav-right,
+    .nav-center {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+
+    .nav-link {
+        margin: 0 10px;
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+        margin-top: 20px;
+        padding-bottom: 80px;
+        /* Space for content to breathe */
+    }
+
+    .hero-content {
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+        z-index: 2;
+        /* Ensure text is above bg text */
+    }
+
+    .social-link {
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        /* Smaller title for mobile */
+    }
+
+    .hero-subtitle,
+    .hero-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 0.85rem;
+    }
+
+    .hero-image-wrapper {
+        height: 50vh;
+        width: 100%;
+        /* Reset any transforms */
+        transform: none;
+        align-items: flex-end;
+    }
+
+    .character-image {
+        max-height: 100%;
+        max-width: 90%;
+        /* Prevent touching edges */
+        transform: none;
+        mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    }
+
+    .background-text {
+        top: 30%;
+        font-size: 20vw;
+        /* Smaller relative text */
+        opacity: 0.6;
+        /* Fade it out a bit more on mobile so content is readable */
+    }
+
+    .side-nav-dots {
+        display: none;
+    }
+
+    .bottom-logo {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 0;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Games / Menu Page Styles */
+
+.games-section {
+    padding: 20px 60px 80px;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: var(--text-black);
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    width: 100%;
+}
+
+.game-card {
+    background: white;
+    border: 3px solid var(--text-black);
+    border-radius: 0;
+    /* Boxy look */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.game-card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 8px 8px 0px var(--text-black);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    background-color: #eee;
+    overflow: hidden;
+    border-bottom: 3px solid var(--text-black);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.game-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.card-rank {
+    display: inline-block;
+    background-color: var(--text-black);
+    color: white;
+    padding: 5px 10px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .games-section {
+        padding: 20px 20px 80px;
+    }
+
+    .page-title {
+        font-size: 3rem;
+        margin-bottom: 30px;
+    }
+
+    .games-grid {}
+}
+
+
+/* Index Page Extra Sections */
+
+.about-section {
+    padding: 80px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    color: var(--text-black);
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-grey);
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.works-section {
+    padding: 80px 60px;
+    position: relative;
+    z-index: 5;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Specific button for about section */
+.btn-about {
+    margin-top: 40px;
+    display: inline-block;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 100px 60px;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    background-color: var(--text-black);
+    /* Dark background for contrast */
+    color: white;
+    margin-top: 60px;
+}
+
+.cta-title {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    color: #ccc;
+    /* Light grey text */
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-cta {
+    background-color: white;
+    color: var(--text-black);
+    border: 2px solid white;
+    font-size: 1.1rem;
+    padding: 15px 40px;
+}
+
+.btn-cta:hover {
+    background-color: transparent;
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 60px 20px;
+    }
+
+    .cta-title {
+        font-size: 3rem;
+    }
+
+    .about-section,
+    .works-section {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+}
