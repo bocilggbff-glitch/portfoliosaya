@@ -4,25 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio-Akhdan</title>
+
+    <!-- SEO Optimization: Descriptive Title -->
+    <title>Portfolio Akhdan - Web Developer & SEO Expert</title>
+
+    <!-- SEO & AI Overview Optimization: Meta Tags -->
+    <meta name="description"
+        content="Portfolio of Akhdan, a Creative Web Developer expert in Bootstrap HTML, SEO, AI Overview optimization, and PageSpeed. Explore my digital experiences and services.">
+    <meta name="keywords"
+        content="Akhdan, Web Developer, Portfolio, SEO Expert, PageSpeed Optimization, Bootstrap HTML, Game Design, Creative Developer">
+    <meta name="author" content="Akhdan">
+    <meta name="robots" content="index, follow"> <!-- Ensure indexing -->
+
+    <!-- Open Graph for Social Media & AI Context -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio Akhdan - Creative Web Developer">
+    <meta property="og:description"
+        content="I'm Akhdan, a creative developer merging aesthetics with functionality. Expert in SEO and PageSpeed.">
+    <meta property="og:image" content="logo/akhdan.jpg">
+    <meta property="og:url" content="https://akhdan-portfolio.com/"> <!-- Placeholder URL -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio Akhdan - Creative Web Developer">
+    <meta name="twitter:description" content="Web Developer expert in SEO & PageSpeed.">
+    <meta name="twitter:image" content="logo/akhdan.jpg">
+
+    <!-- Favicon Optimization -->
+    <link rel="icon" type="image/jpeg" href="logo/akhdan.jpg">
+    <link rel="apple-touch-icon" href="logo/akhdan.jpg">
+
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Fonts -->
+    <!-- PageSpeed Optimization: Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload Critical Image (LCP) -->
+    <link rel="preload" as="image" href="logo/akhdan.jpg">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Mr+Dafoe&display=swap"
         rel="stylesheet">
 
-    <!-- Icons (using Phosphor Icons or similar CDN for simplicity, or SVG directly) -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Icons: Defer for PageSpeed -->
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 
-
+    <!-- AI Overview Optimization: JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Akhdan",
+      "jobTitle": "Web Developer",
+      "description": "Expert Web Developer specialized in Bootstrap HTML, SEO, and PageSpeed Optimization.",
+      "image": "logo/akhdan.jpg",
+      "url": "https://akhdan-portfolio.com", 
+      "knowsAbout": ["SEO", "Web Development", "Bootstrap", "PageSpeed Optimization", "AI Overview"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      }
+    }
+    </script>
 </head>
 
 <body>
-
-
 
     <div class="background-text">MAKIMA</div>
 
@@ -51,10 +97,10 @@
                 we discuss my portfolio, there are discussions about games and others, as well as selling businesses...
             </p>
 
-            <a href="#" class="social-link">
+            <a href="#" class="social-link" aria-label="Social Link">
                 <div class="social-icon">
-                    <!-- Placeholder for small profile image -->
-                    <img src="https://placehold.co/40" alt="Instagram">
+                    <!-- Added width/height and alt for PageSpeed/SEO -->
+                    <img src="https://placehold.co/40" alt="Instagram Profile" width="40" height="40">
                 </div>
                 <span>https://getbootstrap.com/docs/5.3/components/modal/</span>
             </a>
@@ -62,14 +108,16 @@
             <div class="signature">Akhdan</div>
 
             <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">YOUTUBE</a>
-                <a href="manga.html" class="btn btn-outline">READ MANGA</a>
+                <!-- Added aria-labels for accessibility/SEO -->
+                <a href="#" class="btn btn-primary" aria-label="Visit Youtube Channel">YOUTUBE</a>
+                <a href="manga.html" class="btn btn-outline" aria-label="Read Manga">READ MANGA</a>
             </div>
         </div>
 
         <div class="hero-image-wrapper">
-            <!-- User should replace this with actual Makima transparent PNG -->
-            <img src="logo/akhdan.jpg" alt="Makima" class="character-image">
+            <!-- LCP Image: fetchpriority high, no lazy load, explicit dimensions (aspect ratio) -->
+            <img src="logo/akhdan.jpg" alt="Akhdan - Creative Developer optimized for SEO" class="character-image"
+                width="720" height="1280" fetchpriority="high">
         </div>
 
         <div class="side-nav-dots">
@@ -110,7 +158,9 @@
                 <!-- Project 1 -->
                 <div class="game-card">
                     <div class="card-image">
-                        <img src="logo/hello.png" alt="Project 1">
+                        <!-- Lazy load below fold images, added alt, width/height -->
+                        <img src="logo/hello.png" alt="Personal Portfolio Website" loading="lazy" width="600"
+                            height="400">
                     </div>
                     <div class="card-info">
                         <h2>Personal Portfolio</h2>
@@ -122,7 +172,8 @@
                 <!-- Project 2 -->
                 <div class="game-card">
                     <div class="card-image">
-                        <img src="logo/shop.png" alt="Project 2">
+                        <img src="logo/shop.png" alt="Toko Online Fullstack App" loading="lazy" width="600"
+                            height="400">
                     </div>
                     <div class="card-info">
                         <h2>Toko Online</h2>
@@ -134,7 +185,8 @@
                 <!-- Project 3 -->
                 <div class="game-card">
                     <div class="card-image">
-                        <img src="logo/do.png" alt="Project 3">
+                        <img src="logo/do.png" alt="Coding Dashboard Visualization" loading="lazy" width="600"
+                            height="400">
                     </div>
                     <div class="card-info">
                         <h2>Coding Dashboard</h2>
@@ -153,7 +205,8 @@
             Have a project in mind? Let's create something amazing together.
             I'm currently available for freelance projects.
         </p>
-        <a href="wa:081330916740" class="btn btn-cta">CONTACT ME</a>
+        <!-- Updated to standard WhatsApp link format for better mobile handling -->
+        <a href="https://wa.me/6281330916740" class="btn btn-cta" aria-label="Contact via WhatsApp">CONTACT ME</a>
     </section>
 
     <!-- Overlay texture for paper effect -->
