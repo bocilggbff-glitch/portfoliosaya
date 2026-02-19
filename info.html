@@ -95,6 +95,39 @@
                 font-size: 0.95rem;
             }
         }
+
+        /* Social Icons Styles */
+        .social-links-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .social-icon-link {
+            color: var(--text-black);
+            font-size: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(2px);
+        }
+
+        .social-icon-link:hover {
+            transform: translateY(-5px);
+            background: var(--text-black);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
@@ -148,6 +181,25 @@
                 <span class="stat-value">100%</span>
                 <span class="stat-label">Dedication</span>
             </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="social-links-container">
+            <a href="#" class="social-icon-link" aria-label="Instagram">
+                <i class="ph ph-instagram-logo"></i>
+            </a>
+            <a href="#" class="social-icon-link" aria-label="Twitter">
+                <i class="ph ph-twitter-logo"></i>
+            </a>
+            <a href="#" class="social-icon-link" aria-label="YouTube">
+                <i class="ph ph-youtube-logo"></i>
+            </a>
+            <a href="#" class="social-icon-link" aria-label="TikTok">
+                <i class="ph ph-tiktok-logo"></i>
+            </a>
+            <a href="#" class="social-icon-link" aria-label="WhatsApp">
+                <i class="ph ph-whatsapp-logo"></i>
+            </a>
         </div>
     </main>
 
